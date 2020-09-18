@@ -28,6 +28,10 @@ export const getFollowingInProgress = (state: AppStateType) => {
   return state.usersPage.followingInProgress;
 };
 
+export const getUsersFilter = (state: AppStateType) => {
+  return state.usersPage.filter;
+};
+
 export const countSomethingDifficult = (state: AppStateType) => {
   let count = 23;
   return count;
