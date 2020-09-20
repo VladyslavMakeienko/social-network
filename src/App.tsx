@@ -2,9 +2,9 @@ import React, { Component, ComponentType } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { HashRouter, Route, withRouter, BrowserRouter } from "react-router-dom";
-import UsersContainer from "./components/Users/UsersContainer";
+import { UsersPage } from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import { LoginPage } from "./components/Login/Login";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -52,7 +52,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
           <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
           <Route
             path="/users"
-            render={() => <UsersContainer pageTitle={"Heroes"} />}
+            render={() => <UsersPage pageTitle={"Heroes"} />}
           />
           <Route path="/login" render={() => <LoginPage />} />
           <Route path="/news" render={() => <News />} />
