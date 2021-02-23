@@ -41,8 +41,11 @@ const ProfileContainer = React.lazy(
   () => import("./components/Profile/ProfileContainer")
 );
 
+const ChatPage = React.lazy(() => import("./pages/Chat/ChatPage"));
+
 const SuspendedDialogs = withSuspense(DialogsContainer);
 const SuspendedProfile = withSuspense(ProfileContainer);
+const SuspendedChatPage = withSuspense(ChatPage);
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 
@@ -108,7 +111,10 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                   icon={<NotificationOutlined />}
                   title="subnav 3"
                 >
-                  <Menu.Item key="9">option9</Menu.Item>
+                  <Menu.Item key="9">
+                    {" "}
+                    <Link to="/chat">Chat</Link>
+                  </Menu.Item>
                   <Menu.Item key="10">option10</Menu.Item>
                   <Menu.Item key="11">option11</Menu.Item>
                   <Menu.Item key="12">option12</Menu.Item>
@@ -129,6 +135,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
               <Route path="/news" render={() => <News />} />
               <Route path="/music" render={() => <Music />} />
               <Route path="/settings" render={() => <Settings />} />
+              <Route path="/chat" render={() => <SuspendedChatPage />} />
+              {/* <Route path="*" render={() => <div>404 NOT FOUND</div>} /> */}
             </Content>
           </Layout>
         </Content>
